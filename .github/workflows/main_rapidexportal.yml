@@ -75,5 +75,4 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: "rapidexportal"
-          slot-name: "Production"
           package: ./deploy
