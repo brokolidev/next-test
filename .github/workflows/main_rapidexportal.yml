@@ -54,7 +54,14 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
-          path: ./standalone-app
+          path: ./deploy
+
+      - name: List deployment files
+        run: |
+          echo "=== Deployment files ==="
+          ls -la ./deploy/
+          echo "=== Server.js content ==="
+          head -10 ./deploy/server.js
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -69,4 +76,4 @@ jobs:
         with:
           app-name: "rapidexportal"
           slot-name: "Production"
-          package: ./standalone-app
+          package: ./deploy
